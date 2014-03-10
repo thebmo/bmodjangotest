@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nes',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,19 +56,44 @@ WSGI_APPLICATION = 'djtest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
+# sqlite3 demo
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+# }
+# # Local Db
+# DATABASES = {
+    # 'default': {
+        # 'ENGINE':'django.db.backends.mysql',
+        # 'NAME': 'djnes_local',
+        # 'USER': 'root',
+        # 'PASSWORD': 'qazwert$0369',
+        # 'HOST': '127.0.0.1',
+        # 'PORT': '3306',
+    # }
+# }
+
+# Live Db (clearDB)
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE':'django.db.backends.mysql',
+        'NAME': 'bmodjanones',
+        'USER': 'bc9b2ef1c7ad8f',
+        'PASSWORD': '63fb3fce',
+        'HOST': 'us-cdbr-azure-east-c.cloudapp.net',
+        'PORT': '3306',
     }
 }
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'EST'
 
 USE_I18N = True
 
