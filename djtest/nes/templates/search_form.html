@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Search</title>
+</head>
+<body>
+    <form action="" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="search">
+    </form>
+    {%for error in errors%}
+        <p style="color:red;">{{error}}</p>
+    {%endfor%}
+    
+    <table border = 1>
+    <B><TR><TH>TITLE</TH><TH>GENRE</TH><TH>RATING</TH><TH>PUBLISHER</TH><TH>NA RELEASE</TH><TH>EU RELEASE</TH></TR></B>
+    
+    {%for title in titles%}
+        <tr>
+            <td>{{title.title}}</td>
+            <td>{{title.genre}}</td>
+            <td>
+                {% if title.rating == NULL %}
+                    Not yet rated.</td>
+                {%else%}
+                    {{game.rating}}</td>
+                {%endif%}
+            <td>{{title.publisher}}</td>
+            <td>{{title.na_release}}</td>
+            <td>{{title.eu_release}}</td>
+        </tr>
+    {%endfor%}
+    </table
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="styllsheet" href="css/style.css">
+    <link href="images/favicon.ico" rel="shortcut icon">
+    <title>TEST!</title>
+</head>
+<body>
+
+<div class="container">
+    <p><a href = "/games/">Search</a> the NES list</p>
+    {% if users %}
+        this is a user query test<br/><hr/>
+        {%for user in users%}
+            <div class="user">
+                {{user.username}}<br/>
+                <b>email:</b> {{user.email_address}}<br/>
+                <b>joined:</b> {{user.date_joined}}
+            </div>
+            <br>
+        {%endfor%}
+    {%endif%}
+    {%if url%}
+        {{url}} not found. you are mistake.<br/>
+        <b>(This is an error 404 message btw)</b>
+    {%endif%}
+</div>
+</body>
+</html>

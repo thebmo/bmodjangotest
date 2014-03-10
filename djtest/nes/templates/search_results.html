@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <link rel="styllsheet" href="css/style.css">
+    <link href="images/favicon.ico" rel="shortcut icon">
+    <title>Game Index!</title>
+</head>
+<body>
+
+<div class="container">
+    
+    <form action="" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="search">
+    </form>
+    {%for error in errors%}
+        <p style="color:red;">{{error}}</p>
+    {%endfor%}
+    <a href='/games/'>show all</a>
+    <h1>Results for: {{query}}</h1>
+    {%if games%}
+        found {{games|length}} title{{games|pluralize}}
+        <table border = 1>
+        <B><TR><TH>TITLE</TH><TH>GENRE</TH><TH>RATING</TH><TH>PUBLISHER</TH><TH>NA RELEASE</TH><TH>EU RELEASE</TH></TR></B>
+        {%for game in games%}
+                <tr>
+                    <td>{{game.title}}</td>
+                    <td>{{game.genre}}</td>
+                    <td>
+                        {% if game.rating == NULL %}
+                            Not yet rated.</td>
+                        {%else%}
+                            {{game.rating}}</td>
+                        {%endif%}
+                    <td>{{game.publisher}}</td>
+                    <td>{{game.na_release}}</td>
+                    <td>{{game.eu_release}}</td>
+                </td>
+        {%endfor%}
+        </table>
+    {%else%}
+        No games matched your criteria
+    {%endif%}
+</div>
+</body>
+</html>
