@@ -76,16 +76,7 @@ WSGI_APPLICATION = 'djtest.wsgi.application'
 # }
 
 # Live Db (clearDB)
-DATABASES = {
-    'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME': 'bmodjanones',
-        'USER': 'bc9b2ef1c7ad8f',
-        'PASSWORD': '63fb3fce',
-        'HOST': 'us-cdbr-azure-east-c.cloudapp.net',
-        'PORT': '3306',
-    }
-}
+
 
 
 # Internationalization
