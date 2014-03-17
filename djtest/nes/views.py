@@ -5,6 +5,8 @@ from nes.models import Users, Games, TestEntries
 from nes.forms import ContactForm #import forms here
 
 # Create your views here.
+def text_test(request):
+    return render(request, 'text.html',)
 
 def e404(request):
     u = request.path

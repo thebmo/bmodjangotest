@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 'put here'
+SECRET_KEY = 'x!xs)g=z&a9i*vg_^n=a9955=pzd#hpbjfqz17e-6v9k#l5a%6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -76,7 +76,16 @@ WSGI_APPLICATION = 'djtest.wsgi.application'
 # }
 
 # Live Db (clearDB)
-
+DATABASES = {
+    'default': {
+        'ENGINE':'django.db.backends.mysql',
+        'NAME': 'bmodjanones',
+        'USER': 'bc9b2ef1c7ad8f',
+        'PASSWORD': '63fb3fce',
+        'HOST': 'us-cdbr-azure-east-c.cloudapp.net',
+        'PORT': '3306',
+    }
+}
 
 
 # Internationalization
