@@ -1,2 +1,6 @@
-djtest/djtest/settings.py
-djtest/djtest/settings.pyc
+djtest/env/.ptvs/*
+djtest/obj/*
+djtest/bin/*
+
+*.pyc
+env/.ptvs/*
