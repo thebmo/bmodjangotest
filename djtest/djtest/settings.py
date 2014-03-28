@@ -30,13 +30,12 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
         # 'PORT': '3306',
     # }
 # }
-import os
-virtenv = os.environ['PYTHONPATH'] + '../env/'
-virtualenv = os.path.join(virtenv, 'Scripts/activate_this.py')
+# For PyMySQL
 try:
-    execfile(virtualenv, dict(__file__=virtualenv))
-except IOError:
-    pass
+  import pymysql
+  pymysql.install_as_MySQLdb()
+except ImportError:
+  pass
 
 # Live Db (clearDB)
 DATABASES = {
