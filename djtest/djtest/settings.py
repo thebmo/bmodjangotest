@@ -9,20 +9,22 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# import os
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+# for pyMySQL
+import pymysql
+pymysql.install_as_MySQLdb()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'x!xs)g=z&a9i*vg_^n=a9955=pzd#hpbjfqz17e-6v9k#l5a%6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# DEBUG = True
 DEBUG = False
 
-TEMPLATE_DEBUG = True
+TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = ['.azurewebsites.net.',]
 
@@ -56,36 +58,6 @@ WSGI_APPLICATION = 'djtest.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
-# sqlite3 demo
-# DATABASES = {
-    # 'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
-# }
-# # Local Db
-# DATABASES = {
-    # 'default': {
-        # 'ENGINE':'django.db.backends.mysql',
-        # 'NAME': 'djnes_local',
-        # 'USER': 'root',
-        # 'PASSWORD': 'qazwert$0369',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '3306',
-    # }
-# }
-
-# Live Db (clearDB)
-DATABASES = {
-    'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME': 'bmodjanones',
-        'USER': 'bc9b2ef1c7ad8f',
-        'PASSWORD': '63fb3fce',
-        'HOST': 'us-cdbr-azure-east-c.cloudapp.net',
-        'PORT': '3306',
-    }
-}
 
 
 # Internationalization
