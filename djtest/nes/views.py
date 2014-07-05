@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.mail import send_mail #for contact form email submission
 from nes.models import Users, Games, TestEntries
-from nes.forms import ContactForm #import forms here
+from nes.forms import ContactForm, RandomGameForm #import forms here
 
 # Create your views here.
 def text_test(request):
@@ -25,7 +25,7 @@ def search(request):
     if 'q' in request.GET:
         q = request.GET['q']
         if not q:
-            errors.append('He dummy, you left this blank!')
+            errors.append('Hey dummy, you left this blank!')
         elif len(q) > 20:
             errors.append('Please limit search to less than 20 characterss')
             
@@ -36,31 +36,14 @@ def search(request):
     all_titles = Games.objects.all()
     return render(request, 'search_form.html', {'errors' : errors, 'titles': all_titles} )
     
-# old contact view
-# def contact(request):
-    # errors = []
-    # if request.method== 'POST':
-        # if not request.POST.get('subject', ''):
-            # errors.append('Subject?')
-        # if not request.POST.get('message', ''):
-            # errors.append('what you say?')
-        # if not request.POST.get('email', '') and '@' not in request.POST['email']:
-            # errors.append('not valid email bro')
-        # if not errors:
-            # send_mail(
-                # request.POST['subject'],
-                # request.POST['message'],
-                # request.POST.get('email', 'noreply@example.com'),
-                # ['bmosier@gmail.com'],
-            # )
-            # return HttpResponseRedirect('/contact/thanks/')
-    # return render(request, 'contact_form.html',
-        # {'errors' : errors})
-
+# random game form view
+def random_game(request):
+    form = RandomGameForm()
+    return render(request, 'random_game.html', {'form' : form})
 
 # new contact view        
 def contact(request):
-    if request.method== 'POST':
+    if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
@@ -72,7 +55,7 @@ def contact(request):
             )
             return HttpResponseRedirect('/contact/thanks/')
     else:
-        form= ContactForm(
+        form = ContactForm(
             initial={'subject': 'your forms are tops'}
         )
     return render(request, 'contact_form.html', {'form' : form})

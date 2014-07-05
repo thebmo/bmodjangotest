@@ -10,3 +10,7 @@ ul.errorlist {
     margin: 0 0 3px;
     padding: 4px 5px;
     }
+body {
+    background-image:url('../images/hixs_pattern_evolution.png');
+    color: lime;
+    }

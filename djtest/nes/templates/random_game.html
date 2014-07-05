@@ -1,0 +1,44 @@
+<html>
+<!-- <style type="text/css">
+    ul.errorlist {
+        margin: 0;
+        padding: 0;
+    }
+    .errorlist li {
+        background-color: red;
+        color: white;
+        display: block;
+        font-size: 12px;
+        margin: 0 0 3px;
+        padding: 4px 5px;
+    }
+</style> -->
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="{% static "style.css" %}">
+    <!-- <link href="images/favicon.ico" rel="shortcut icon"> -->
+    <title>Randomize!</title>
+</head>
+<body>
+    {% if form.errors %}
+        <p style = "color:Red;">
+            Please Correct the error{{ form.errors|pluralize}} below:
+        </p>
+    {%endif%}
+    
+    <form action "" method="get">
+        <div class="field">
+            <label for="id_year">years</label>
+            {{form.year}}
+        </div>
+        <div class="field">
+            <label for="id_owned">Only Games Owned?:</label>
+            {{form.owned}}
+        </div>
+        
+            <tr><td><input type="submit" value="submit"></td></tr>
+        </table>
+    </form>
+</body>
+</html>
